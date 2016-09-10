@@ -14,8 +14,8 @@ import java.util.List;
  */
 public class DataManager {
 
-    public static void saveData(String filename, String analyzed, String text, String sentiment, String emotion, String politicalLeaning, String topics) {
-        CallData missedCall = new CallData(filename, analyzed, text, sentiment, emotion, politicalLeaning, topics);
+    public static void saveData(String filename, String name, String number, String status, String text, String sentiment, String emotion, String politicalLeaning, String topics, String summary) {
+        CallData missedCall = new CallData(filename, name, number, status, text, sentiment, emotion, politicalLeaning, topics, summary);
         missedCall.save();
         showLog("Data saved");
     }

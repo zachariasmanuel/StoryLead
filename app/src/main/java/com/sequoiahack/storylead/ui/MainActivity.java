@@ -79,7 +79,7 @@ public class MainActivity extends BaseActivity {
     private void askPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE,android.Manifest.permission.PROCESS_OUTGOING_CALLS},1);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE,android.Manifest.permission.PROCESS_OUTGOING_CALLS, android.Manifest.permission.READ_EXTERNAL_STORAGE},1);
             }
         }
     }

@@ -15,8 +15,14 @@ public class CallData extends Model {
     @Column(name = "filename")
     public String filename;
 
-    @Column(name = "analyzed")
-    public String analyzed;
+    @Column(name = "name")
+    public String name;
+
+    @Column(name = "number")
+    public String number;
+
+    @Column(name = "status")
+    public String status;
 
     @Column(name = "text")
     public String text;
@@ -33,19 +39,25 @@ public class CallData extends Model {
     @Column(name = "topics")
     public String topics;
 
+    @Column(name = "summary")
+    public String summary;
+
     public CallData() {
         super();
     }
 
-    public CallData(String filename, String analyzed, String text, String sentiment, String emotion, String politicalleaning, String topics) {
+    public CallData(String filename, String name, String number, String status, String text, String sentiment, String emotion, String politicalleaning, String topics, String summary) {
         super();
         this.filename = filename;
-        this.analyzed = analyzed;
+        this.name = name;
+        this.number = number;
+        this.status = status;
         this.text = text;
         this.sentiment = sentiment;
         this.emotion = emotion;
         this.politicalleaning = politicalleaning;
         this.topics = topics;
+        this.summary = summary;
     }
 }
 
