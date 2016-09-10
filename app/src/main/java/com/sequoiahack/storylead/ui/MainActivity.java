@@ -1,7 +1,11 @@
 package com.sequoiahack.storylead.ui;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.v4.app.ActivityCompat;
 import android.widget.FrameLayout;
 
 import com.roughike.bottombar.BottomBar;
@@ -32,6 +36,7 @@ public class MainActivity extends BaseActivity {
                 loadFragment(tabId);
             }
         });
+        askPermission();
     }
 
 
@@ -61,6 +66,21 @@ public class MainActivity extends BaseActivity {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.masterFrameLayout, settingsFragment)
                     .commit();
+        }
+    }
+
+    private boolean checkPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return checkSelfPermission(android.Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED;
+        }
+        return true;
+    }
+
+    private void askPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE,android.Manifest.permission.PROCESS_OUTGOING_CALLS},1);
+            }
         }
     }
 
