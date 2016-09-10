@@ -5,11 +5,11 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
 /**
- * Table model for Missed Call
+ * Table model for CallData
  * Created by zac on 10/09/16.
  */
 
-@Table(name = "MissedCall")
+@Table(name = "CallData")
 public class CallData extends Model {
 
     @Column(name = "filename")
