@@ -30,4 +30,6 @@ dependencies {
     compile 'com.roughike:bottom-bar:2.0.2'
     compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.squareup.okhttp3:okhttp:3.0.0'
+    compile 'com.jakewharton.retrofit:retrofit1-okhttp3-client:1.0.2'
 }

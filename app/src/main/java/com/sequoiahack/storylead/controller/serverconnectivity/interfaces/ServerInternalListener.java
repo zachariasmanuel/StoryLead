@@ -11,4 +11,8 @@ public interface ServerInternalListener {
     void onUploadLinkGettingFailed();
 
     void onRetrofitError(RetrofitError error);
+
+    void onUploadSuccess();
+
+    void onUploadFailed();
 }

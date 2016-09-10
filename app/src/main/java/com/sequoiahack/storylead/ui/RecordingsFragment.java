@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.sequoiahack.storylead.R;
 import com.sequoiahack.storylead.controller.data.DataManager;
 import com.sequoiahack.storylead.controller.data.tablemodels.CallData;
+import com.sequoiahack.storylead.controller.serverconnectivity.ConnectionManager;
 import com.sequoiahack.storylead.controller.utils.FileManager;
 
 import java.io.File;
@@ -31,6 +32,7 @@ public class RecordingsFragment extends BaseFragment {
     private String[] number = new String[]{"9677887766", "7788778877", "9988776655"};
     private ListView recordingsListView;
     private List<CallData> callData;
+    private ConnectionManager connectionManager;
 
 
     @Nullable
@@ -38,6 +40,7 @@ public class RecordingsFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.recordings_fragment, container, false);
         recordingsListView = (ListView) layout.findViewById(R.id.recordingslistview);
+        connectionManager = new ConnectionManager(getActivity());
 
         /*
         DataManager.saveData("1", "2", "3", "4", "5", "6", "7");
@@ -57,7 +60,8 @@ public class RecordingsFragment extends BaseFragment {
                                     int position, long id) {
                 if (callData.get(position).status.equals("notrequested")) {
                     //todo : request to upload
-                    showLog("Not requested");
+                    connectionManager.sendVoiceToServer(callData.get(position));
+                    //showLog("Not requested");
                 } else if (callData.get(position).status.equals("requested")) {
                     //todo : Show waiting dialog
                     showLog("Requested");

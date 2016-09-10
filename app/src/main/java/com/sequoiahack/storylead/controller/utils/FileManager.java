@@ -32,4 +32,8 @@ public class FileManager {
         String[] split2 = split1[1].split("\\)");
         return split2[0];
     }
+
+    public static String getFilePath(String fileName) {
+        return Environment.getExternalStorageDirectory().toString() + "/MIUI/sound_recorder/call_rec/" + fileName;
+    }
 }
