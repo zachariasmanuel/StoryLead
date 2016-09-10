@@ -3,5 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    
+
+    <color name="RecordingTab">#02506B</color>
+    <color name="ProfileTab">#CBC36E</color>
+    <color name="RecordTab">#BE5610</color>
+    <color name="NotificationTab">#FFFF00</color>
+    <color name="SettingsTab">#005E6C</color>
 </resources>
+
+

@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tabs>
     <tab
+        barColorWhenSelected="@color/RecordingTab"
         icon="@drawable/ic_favorites"
-        id="@+id/tab_favorites"
-        barColorWhenSelected="#FF0000"
-        title="Favorites" />
+        id="@+id/tab_recording"
+        title="Recordings" />
     <tab
+        barColorWhenSelected="@color/ProfileTab"
         icon="@drawable/ic_nearby"
-        id="@+id/tab_nearby"
-        barColorWhenSelected="#00FF00"
-        title="Nearby" />
+        id="@+id/tab_profile"
+        title="Profile" />
     <tab
+        barColorWhenSelected="@color/RecordTab"
         icon="@drawable/ic_friends"
-        id="@+id/tab_friend"
-        barColorWhenSelected="#0000FF"
-        title="Friends" />
+        id="@+id/tab_record"
+        title="Record" />
+    <tab
+        barColorWhenSelected="@color/NotificationTab"
+        icon="@drawable/ic_recents"
+        id="@+id/tab_notification"
+        title="Notification" />
+    <tab
+        barColorWhenSelected="@color/SettingsTab"
+        icon="@drawable/ic_restaurants"
+        id="@+id/tab_settings"
+        title="Settings" />
 </tabs>
