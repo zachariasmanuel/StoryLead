@@ -3,6 +3,7 @@ package com.sequoiahack.storylead.controller.data;
 import android.util.Log;
 
 import com.activeandroid.query.Select;
+import com.activeandroid.query.Update;
 import com.sequoiahack.storylead.app.AppConstant;
 import com.sequoiahack.storylead.controller.data.tablemodels.CallData;
 
@@ -28,5 +29,13 @@ public class DataManager {
     private static void showLog(String message) {
         if (AppConstant.ENABLE_LOG)
             Log.d(AppConstant.APP_TAG, message);
+    }
+
+    public static void updateStatus(String status, String filename) {
+        showLog("Filename - " + filename);
+        new Update(CallData.class)
+                .set("status = ?", status)
+                .where("filename = ?", filename)
+                .execute();
     }
 }

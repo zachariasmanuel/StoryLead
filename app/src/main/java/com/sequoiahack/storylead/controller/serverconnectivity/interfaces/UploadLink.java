@@ -12,7 +12,7 @@ import retrofit.http.POST;
  */
 public interface UploadLink {
     @FormUrlEncoded
-    //@POST("api/media/get-upload-url")
-    @POST("/v2/57d464970f0000eb082d86f8")
+    @POST("/media/get_upload_url")
+        //@POST("/v2/57d464970f0000eb082d86f8")
     void getUploadLink(@Field("name") String name, Callback<UploadLinkResult> callback);
 }

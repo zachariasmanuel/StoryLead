@@ -9,7 +9,7 @@ public class AppConstant {
     public static boolean ENABLE_LOG = true;
 
     public static String MAIN_SERVER = "";
-    public static String TESTING_SERVER = "http://www.mocky.io/";
+    public static String TESTING_SERVER = "http://29c4d8ed.ngrok.io/api";
     public static String CURRENT_SERVER = TESTING_SERVER;
 
 }
