@@ -1,6 +1,7 @@
 package com.sequoiahack.storylead.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import com.sequoiahack.storylead.R;
 import com.sequoiahack.storylead.controller.data.DataManager;
 import com.sequoiahack.storylead.controller.data.tablemodels.CallData;
 import com.sequoiahack.storylead.controller.serverconnectivity.ConnectionManager;
+import com.sequoiahack.storylead.controller.serverconnectivity.interfaces.ServerListener;
 import com.sequoiahack.storylead.controller.utils.FileManager;
 
 import java.io.File;
@@ -26,21 +28,24 @@ import java.util.List;
  * This fragment is loaded when user clicks on Recording button on BottomBar
  * Created by zac on 10/09/16.
  */
-public class RecordingsFragment extends BaseFragment {
+public class RecordingsFragment extends BaseFragment implements ServerListener {
 
     private String[] name = new String[]{"Zac", "Anoop", "Bots"};
     private String[] number = new String[]{"9677887766", "7788778877", "9988776655"};
     private ListView recordingsListView;
     private List<CallData> callData;
     private ConnectionManager connectionManager;
+    private CustomAdapter mCustomAdapter;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
         LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.recordings_fragment, container, false);
         recordingsListView = (ListView) layout.findViewById(R.id.recordingslistview);
-        connectionManager = new ConnectionManager(getActivity());
+        connectionManager = new ConnectionManager(this);
 
         /*
         DataManager.saveData("1", "2", "3", "4", "5", "6", "7");
@@ -53,7 +58,7 @@ public class RecordingsFragment extends BaseFragment {
         getDataFromDb();
 
         showLog("Db size - " + callData.size());
-        CustomAdapter mCustomAdapter = new CustomAdapter();
+        mCustomAdapter = new CustomAdapter();
         recordingsListView.setAdapter(mCustomAdapter);
         recordingsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
@@ -64,6 +69,8 @@ public class RecordingsFragment extends BaseFragment {
                     //showLog("Not requested");
                 } else if (callData.get(position).status.equals("requested")) {
                     //todo : Show waiting dialog
+                    Intent i = new Intent(getActivity(), ResultActivity.class);
+                    startActivity(i);
                     showLog("Requested");
                 } else if (callData.get(position).status.equals("updated")) {
                     showLog("Updated");
@@ -101,6 +108,12 @@ public class RecordingsFragment extends BaseFragment {
             }
         }
 
+    }
+
+    @Override
+    public void onDataBaseChanged() {
+        getDataFromDb();
+        mCustomAdapter.notifyDataSetChanged();
     }
 
 

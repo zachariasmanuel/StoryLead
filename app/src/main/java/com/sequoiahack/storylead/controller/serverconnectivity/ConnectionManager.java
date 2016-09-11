@@ -1,12 +1,12 @@
 package com.sequoiahack.storylead.controller.serverconnectivity;
 
-import android.content.Context;
 import android.util.Log;
 
 import com.sequoiahack.storylead.app.AppConstant;
 import com.sequoiahack.storylead.controller.data.DataManager;
 import com.sequoiahack.storylead.controller.data.tablemodels.CallData;
 import com.sequoiahack.storylead.controller.serverconnectivity.interfaces.ServerInternalListener;
+import com.sequoiahack.storylead.controller.serverconnectivity.interfaces.ServerListener;
 import com.sequoiahack.storylead.controller.utils.FileManager;
 
 import retrofit.RetrofitError;
@@ -19,15 +19,18 @@ public class ConnectionManager implements ServerInternalListener {
     private ServerConnection mServerConnection;
     private DataSecureHandler mDataHandler;
     private CallData callData;
+    private ServerListener serverListener;
 
 
-    public ConnectionManager(Context context) {
+    public ConnectionManager(ServerListener serverListener) {
+        this.serverListener = serverListener;
         mServerConnection = new ServerConnection(ConnectionManager.this);
         mDataHandler = new DataSecureHandler();
     }
 
+
     public void sendVoiceToServer(CallData callData) {
-       showLog("Sending upload link get request to server");
+        showLog("Sending upload link get request to server");
         this.callData = callData;
         /*mServerConnection.getUploadLink(callData.filename, mDataHandler.getAccessToken());*/
         startUpload("");
@@ -58,6 +61,7 @@ public class ConnectionManager implements ServerInternalListener {
     public void onUploadSuccess() {
         showLog("ConnectionManager - File Upload Success");
         updateDBRequested();
+        serverListener.onDataBaseChanged();
     }
 
 
@@ -67,7 +71,7 @@ public class ConnectionManager implements ServerInternalListener {
     }
 
     private void updateDBRequested() {
-        DataManager.updateStatus("requested",callData.filename);
+        DataManager.updateStatus("requested", callData.filename);
     }
 
     protected void showLog(String message) {

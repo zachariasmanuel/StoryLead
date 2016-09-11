@@ -1,6 +1,7 @@
 package com.sequoiahack.storylead.ui;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.FrameLayout;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 import com.sequoiahack.storylead.R;
+import com.sequoiahack.storylead.controller.gcm.RegistrationIntentService;
 
 /**
  * Main Activity of the app which loads the tab
@@ -37,6 +39,9 @@ public class MainActivity extends BaseActivity {
             }
         });
         askPermission();
+
+        Intent intent = new Intent(this, RegistrationIntentService.class);
+        startService(intent);
     }
 
 
@@ -83,5 +88,6 @@ public class MainActivity extends BaseActivity {
             }
         }
     }
+
 
 }
