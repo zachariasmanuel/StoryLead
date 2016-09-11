@@ -23,7 +23,6 @@ import com.sequoiahack.storylead.R;
 public class RecordFragment extends BaseFragment {
     private ImageView recordStopImageView;
     private TextView recordStatusTextView;
-    private TextView timerTextView;
     private boolean recording = false;
     private Chronometer chronometer;
 
