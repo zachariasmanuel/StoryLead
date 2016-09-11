@@ -5,7 +5,32 @@
     android:orientation="vertical">
 
 
-    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+   <it.gmariotti.cardslib.library.view.CardListView
+       android:id="@+id/carddemo"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="12dp"
+       android:layout_marginRight="12dp"
+       android:layout_marginTop="12dp"/>
+
+   <it.gmariotti.cardslib.library.view.CardViewNative
+       android:id="@+id/carddemo1"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="12dp"
+       android:layout_marginRight="12dp"
+       android:layout_marginTop="12dp"/>
+
+   <it.gmariotti.cardslib.library.view.CardViewNative
+       android:id="@+id/carddemo3"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="12dp"
+       android:layout_marginRight="12dp"
+       android:layout_marginTop="12dp"/>
+
+
+   <!-- <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view1"
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -48,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Hello" />
-    </android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>-->
 
 
 </LinearLayout>

@@ -61,7 +61,7 @@ public class MainActivity extends BaseActivity {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.masterFrameLayout, recordFragment)
                     .commit();
-        } else if (tabId == R.id.tab_notification) {
+        } /*else if (tabId == R.id.tab_notification) {
             NotificationFragment notificationFragment = new NotificationFragment();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.masterFrameLayout, notificationFragment)
@@ -71,7 +71,7 @@ public class MainActivity extends BaseActivity {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.masterFrameLayout, settingsFragment)
                     .commit();
-        }
+        }*/
     }
 
     private boolean checkPermission() {

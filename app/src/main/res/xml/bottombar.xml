@@ -5,17 +5,18 @@
         icon="@drawable/ic_favorites"
         id="@+id/tab_recording"
         title="Recordings" />
-    <tab
-        barColorWhenSelected="@color/ProfileTab"
-        icon="@drawable/ic_nearby"
-        id="@+id/tab_profile"
-        title="Profile" />
+
     <tab
         barColorWhenSelected="@color/RecordTab"
         icon="@drawable/ic_friends"
         id="@+id/tab_record"
         title="Record" />
     <tab
+        barColorWhenSelected="@color/ProfileTab"
+        icon="@drawable/ic_nearby"
+        id="@+id/tab_profile"
+        title="Profile" />
+   <!-- <tab
         barColorWhenSelected="@color/NotificationTab"
         icon="@drawable/ic_recents"
         id="@+id/tab_notification"
@@ -24,5 +25,5 @@
         barColorWhenSelected="@color/SettingsTab"
         icon="@drawable/ic_restaurants"
         id="@+id/tab_settings"
-        title="Settings" />
+        title="Settings" />-->
 </tabs>
